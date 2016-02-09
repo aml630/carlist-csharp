@@ -1,6 +1,8 @@
 using Nancy;
 using CarDealer.Objects;
-// using System.Collections.Generic;
+using System.Collections.Generic;
+using CarDealer;
+
 
 namespace CarMaker
 {
@@ -10,17 +12,15 @@ namespace CarMaker
       {
         Get["/"]= _ => View["addCar.cshtml"];
         //make view all cars cshtml file so we can be sent there
-        Get["/carsAdded"] = _ => {
-          
-          Car newCar = new Car(Request.Query["Make_model"], Request.Query["Price"], Request.Query["Mileage"]);
-          //add save function
-          // Request.Form["Price"], Request.Form["Mileage"]
-          return View["cars_added.cshtml", newCar];
-
-      };
-      // Post["/carsAdded"]= _ => {
-      //
-      // };
+        Get["/view_all_cars"] = _ => {
+          List<Car> allCars = Car.GetAll();
+          return View["view_all_cars.cshtml", allCars];
+          };
+            Post["/cars_added"]= _ => {
+              Car newCar = new Car (Request.Form["Make_model"],Request.Form["Price"], Request.Form["Mileage"]);
+              newCar.Save(newCar);
+              return View["cars_added.cshtml", newCar];
+            };
     }
   }
 }
