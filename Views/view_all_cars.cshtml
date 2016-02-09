@@ -1,7 +1,9 @@
 <h1>Car list:</h1>
 <ul>
-  @foreach(Car auto in Model){
-    <li>@auto</li>
+  @foreach(var auto in Model){
+    <li>@auto.GetMakeModel()</li>
+    <li>@auto.GetPrice()</li>
+    <li>@auto.GetMileage()</li>
  </ul>
   }
 </ul>
