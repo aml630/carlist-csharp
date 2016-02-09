@@ -1,10 +1,16 @@
+
 <h1>Car list:</h1>
 <ul>
   @foreach(var auto in Model){
     <li>@auto.GetMakeModel()</li>
     <li>@auto.GetPrice()</li>
     <li>@auto.GetMileage()</li>
- </ul>
-  }
+    
+    <br>
+    }
 </ul>
 <p><a href="/">Add another car</a></p>
+
+<form action="/cars_cleared" method="post">
+  <button type="submit" name="button">Buy all cars!$$$$$$$$</button>
+</form>

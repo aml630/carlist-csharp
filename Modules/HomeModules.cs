@@ -16,11 +16,15 @@ namespace CarMaker
           List<Car> allCars = Car.GetAll();
           return View["view_all_cars.cshtml", allCars];
           };
-            Post["/cars_added"]= _ => {
-              Car newCar = new Car (Request.Form["Make_model"],Request.Form["Price"], Request.Form["Mileage"]);
-              newCar.Save(newCar);
-              return View["cars_added.cshtml", newCar];
-            };
+          Post["/cars_added"]= _ => {
+            Car newCar = new Car (Request.Form["Make_model"],Request.Form["Price"], Request.Form["Mileage"]);
+            newCar.Save(newCar);
+            return View["cars_added.cshtml", newCar];
+          };
+          Post["/cars_cleared"]= _ => {
+            Car.ClearAll();
+            return View["cars_cleared.cshtml"];
+          };
+        }
+      }
     }
-  }
-}

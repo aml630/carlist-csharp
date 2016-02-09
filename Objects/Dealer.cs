@@ -53,6 +53,9 @@ namespace CarDealer.Objects
       _mileage = SetMileage;
     }
 
+    public static void ClearAll(){
+      _instances.Clear();
+    }
 
   }
 }
