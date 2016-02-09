@@ -1,13 +1,15 @@
-using System.Collections.Generic;
+// using System.Collections.Generic;
 
 namespace CarDealer.Objects
 {
   public class Car
   {
-    private string _makeModel
-    private int _price
-    private int _mileage
+    private string _makeModel;
+    private int _price;
+    private int _mileage;
 
+
+    // private static List<Car> _instances = new List<Car>(){};
     public void SetMakeModel(string newMakeModel)
     {
       _makeModel = newMakeModel;
@@ -35,10 +37,16 @@ namespace CarDealer.Objects
       return _mileage;
     }
 
+    // public static List<Car> GetAll()
+    // {
+    //   return _instances;
+    // }
     public Car(string SetMakeModel, int SetPrice, int SetMileage){
       _makeModel = SetMakeModel;
       _price = SetPrice;
       _mileage = SetMileage;
     }
+
+
   }
 }
